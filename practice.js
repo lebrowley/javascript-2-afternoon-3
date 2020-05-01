@@ -27,7 +27,9 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-// Code Here 
+function first(arr, cb) {
+  cb(arr[0])
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -47,7 +49,9 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
-//Code Here
+function last(arr, cb) {
+  cb(arr[arr.length - 1])
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -65,7 +69,9 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-//Code Here
+function multiply(num1, num2, cb) {
+  cb(num1 * num2)
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -84,7 +90,22 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+// function contains(arr, name, cb) {
+//   if(arr.name !== 'undefined') {
+//     return cb(true)
+//   }else if(arr.name == 'undefined'){
+//     return cb(false)
+//   }
+// }
+
+function contains(arr, name, cb) {
+  for(let i=0; i <= arr.length - 1; i++){
+    if(arr[i] === name){
+      cb(true)
+    }
+  }  cb(false)
+}
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -105,7 +126,34 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+let uniqArr= []
+
+function uniq(arr, cb) {
+  for(let i=0; i <= arr.length - 1; i++){
+    if(arr[i] === arr[i + 1] || arr[i] === arr[i + 2] || arr[i] === arr[i + arr.length - 1]){
+      uniqArr.push(arr[i])
+    }
+  } return cb(uniqArr)
+}
+
+function uniq(arr, cb) {
+  let uniqArr= []
+  arr.forEach(element => {
+    if (!uniqArr.includes(element)) {
+      uniqArr.push(element)
+    }
+  })
+  cb(uniqArr)
+}
+
+function uniq(arr, cb) {
+  return arr.filter(value, index) => data.indexOf(value) === index;
+} 
+cb(uniqArr)
+
+
+//two for loops but make sure they don't overlap; one towards top array and one towards bottom array
+// this one needs to first go through each index of the array iteratively; then, at each new index location, it needs to check this index against all other indeces to see if they match. if they do, it needs to spit the value at that index out to my new variable uniqArr which will then become a new array made up of all the items that used to be duplicates in the old one
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -122,7 +170,13 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+function each(arr, cb){
+  for(let i=0; i <= arr.length - 1; i++){
+    cb(arr[i], indexOf(arr))
+  }
+}
+
+//how do you tell it to produce the index number? indexOf(arr)???
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -139,7 +193,25 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+// function getUserById(users, id, cb) {
+//   for(let i=0; i <= users.length -1; i++){
+//     if(user[i] === id[i]){
+//       cb(user)
+//     }
+//   }
+// }
+
+function getUserById(users, id, cb) {
+  for(let i=0; i <= user.length - 1; i++) {
+    if(indexOf(id) === indexOf(user)){
+      cb(user)
+    }
+  }
+}
+
+// what is indexOf? if(indexOf(user) === indexOf(id)){cb(user)}... would something like this work?
+// if user[i] = id[i] then cb(user)... but not the value at index i the NUMBER OF INDEX I-- they have to be at the same index to be equal to each other
+// user and id need to equal the same index number in the array users and if they do, then the cb can be invoked with the user argument
 
 // Do not edit the code below.
 var users = [
