@@ -126,15 +126,15 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-let uniqArr= []
+// let uniqArr= []
 
-function uniq(arr, cb) {
-  for(let i=0; i <= arr.length - 1; i++){
-    if(arr[i] === arr[i + 1] || arr[i] === arr[i + 2] || arr[i] === arr[i + arr.length - 1]){
-      uniqArr.push(arr[i])
-    }
-  } return cb(uniqArr)
-}
+// function uniq(arr, cb) {
+//   for(let i=0; i <= arr.length - 1; i++){
+//     if(arr[i] === arr[i + 1] || arr[i] === arr[i + 2] || arr[i] === arr[i + arr.length - 1]){
+//       uniqArr.push(arr[i])
+//     }
+//   } return cb(uniqArr)
+// }
 
 function uniq(arr, cb) {
   let uniqArr= []
@@ -146,10 +146,10 @@ function uniq(arr, cb) {
   cb(uniqArr)
 }
 
-function uniq(arr, cb) {
-  return arr.filter(value, index) => data.indexOf(value) === index;
-} 
-cb(uniqArr)
+// function uniq(arr, cb) {
+//   return arr.filter(value, index) => data.indexOf(value) === index;
+// } 
+// cb(uniqArr)
 
 
 //two for loops but make sure they don't overlap; one towards top array and one towards bottom array
@@ -176,7 +176,7 @@ function each(arr, cb){
   }
 }
 
-//how do you tell it to produce the index number? indexOf(arr)???
+//how do you tell it to take the index number? indexOf(arr)???
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -193,25 +193,22 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// function getUserById(users, id, cb) {
-//   for(let i=0; i <= users.length -1; i++){
-//     if(user[i] === id[i]){
-//       cb(user)
-//     }
-//   }
-// }
 
 function getUserById(users, id, cb) {
   for(let i=0; i <= user.length - 1; i++) {
     if(indexOf(id) === indexOf(user)){
-      cb(user)
+      cb(users[i])
     }
   }
 }
 
-// what is indexOf? if(indexOf(user) === indexOf(id)){cb(user)}... would something like this work?
-// if user[i] = id[i] then cb(user)... but not the value at index i the NUMBER OF INDEX I-- they have to be at the same index to be equal to each other
+
+
 // user and id need to equal the same index number in the array users and if they do, then the cb can be invoked with the user argument
+
+// if user[i] = id[i] then cb(user)... but not the value at index i the NUMBER OF INDEX I-- they have to be at the same index to be equal to each other
+
+// what is indexOf? if(indexOf(user) === indexOf(id)){cb(user)}... would something like this work?
 
 // Do not edit the code below.
 var users = [
