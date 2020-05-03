@@ -90,13 +90,6 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-// function contains(arr, name, cb) {
-//   if(arr.name !== 'undefined') {
-//     return cb(true)
-//   }else if(arr.name == 'undefined'){
-//     return cb(false)
-//   }
-// }
 
 function contains(arr, name, cb) {
   for(let i=0; i <= arr.length - 1; i++){
@@ -128,13 +121,7 @@ contains(names, 'Colt', function(result){
 
 // let uniqArr= []
 
-// function uniq(arr, cb) {
-//   for(let i=0; i <= arr.length - 1; i++){
-//     if(arr[i] === arr[i + 1] || arr[i] === arr[i + 2] || arr[i] === arr[i + arr.length - 1]){
-//       uniqArr.push(arr[i])
-//     }
-//   } return cb(uniqArr)
-// }
+
 
 function uniq(arr, cb) {
   let uniqArr= []
@@ -146,14 +133,34 @@ function uniq(arr, cb) {
   cb(uniqArr)
 }
 
-// function uniq(arr, cb) {
-//   return arr.filter(value, index) => data.indexOf(value) === index;
-// } 
-// cb(uniqArr)
+// function uniq(arr, cb){
+//   for(let i=0; i < arr.length; i++){
+//     for(let j= arr.length; j > i; j--){
+//       if(arr[i] === arr[j]){
+//         var uniqArr= arr.splice(j, 1)
+//       }
+//     }
+//   } 
+//   return cb(uniqArr)
+// }
 
+
+// //function uniq(arr, cb) {
+//   let uniqArr= []
+//   arr.filter() ???
+// }
+// could you use this property?
 
 //two for loops but make sure they don't overlap; one towards top array and one towards bottom array
 // this one needs to first go through each index of the array iteratively; then, at each new index location, it needs to check this index against all other indeces to see if they match. if they do, it needs to spit the value at that index out to my new variable uniqArr which will then become a new array made up of all the items that used to be duplicates in the old one
+
+// function uniq(arr, cb) {
+//   for(let i=0; i <= arr.length - 1; i++){
+//     if(arr[i] === arr[i + 1] || arr[i] === arr[i + 2] ||  (and on and on until all the indeces in the array have been checked against the current index from the for loop) arr[i] === arr[i + arr.length - 1]){
+//       uniqArr.push(arr[i])
+//     }
+//   } return cb(uniqArr)
+// }
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -170,13 +177,14 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
+
 function each(arr, cb){
-  for(let i=0; i <= arr.length - 1; i++){
-    cb(arr[i], indexOf(arr))
-  }
+  arr.forEach(function(element, index, array){
+    cb(element, index)
+  })
 }
 
-//how do you tell it to take the index number? indexOf(arr)???
+
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -194,14 +202,13 @@ each(names, function(item, indice){
 */
 
 
-function getUserById(users, id, cb) {
-  for(let i=0; i <= user.length - 1; i++) {
-    if(indexOf(id) === indexOf(user)){
-      cb(users[i])
+function getUserById(user, id, cb){
+  user.forEach(function(element, index, array){
+    if(user.id === id){
+      cb(user[index])
     }
-  }
+  })
 }
-
 
 
 // user and id need to equal the same index number in the array users and if they do, then the cb can be invoked with the user argument
