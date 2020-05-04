@@ -202,13 +202,18 @@ each(names, function(item, indice){
 */
 
 
-function getUserById(user, id, cb){
-  user.forEach(function(element, index, array){
-    if(user.id === id){
-      cb(user[index])
+function getUserById(users, id, cb){
+  users.forEach(function(element, index, array){
+    if(element.id === id){
+      cb(element)
     }
   })
 }
+
+// function getUserById(user, id, cb){
+  
+// }
+
 
 
 // user and id need to equal the same index number in the array users and if they do, then the cb can be invoked with the user argument
